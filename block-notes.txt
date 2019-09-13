@@ -1,0 +1,30 @@
+#GENERAL FORMAT OF i3Blocks SCRIPT
+
+#case $BLOCK_BUTTON in
+#    1) echo "Left click action" ;;
+#    2) echo "Middle click action" ;;
+#    3) echo "Right click action" ;;
+#esac
+
+#echo "Output"
+
+#SAMPLE COMMANDS
+
+# processes see ps man
+ps -axch -o cmd:15,%mem --sort=-%mem | head
+ps -axch -o cmd:15,%cpu --sort=-%cpu | head
+
+# CENTERING ON BAR
+bar {
+  position top
+  workspace_buttons yes
+  status_command i3blocks -c ~/.config/i3blocks/wintitle.conf
+  align center
+}
+
+[window title]
+command=xdotool getactivewindow getwindowname
+interval=3
+color=#A6D1FA
+min_width=<resolution width>
+align=center
